@@ -18,7 +18,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
   </head>
-  <body class="bg-secondary">
+  <body class="bg-light">
     <div class="container-fluid">
       <h1 class="text-center display-3">My Todo App</h1>
       <div class="container bg-white border rounded border p-3 mt-4">
@@ -46,12 +46,12 @@
           </div>
 
           <div class="row mt-3">
-            <div class="col">
+            <div class="col-12 col-md-6 order-1">
               <label for="date" class="form-label">Due Date</label>
               <input type="date" class="form-control" id="date" name="date" />
             </div>
 
-            <div class="col">
+            <div class="col-12 col-md-6 mt-3 mt-md-0 order-2">
               <label for="assignee" class="form-label"
                 >Assign to Person (Optional)</label
               >
@@ -88,9 +88,7 @@
           </div>
         </form>
       </div>
-    </div>
-
-    <div class="container bg-white border rounded p-3 mt-4">
+<div class="container bg-white border rounded p-3 mt-4">
       <div class="card mt-3">
         <div class="card-header">
           <div class="row align-items-center">
@@ -113,7 +111,7 @@
         <div class="card-body">
           <div class="border rounded p-2">
             <div class="row align-items-center">
-              <div class="bg-primary col-md-6">
+              <div class="col-md-6">
                 <h5 class="card-title mb-0">Example Todo</h5>
               </div>
               <div class="col-md-6 text-end">
@@ -143,15 +141,15 @@
             <p class="card-text mb-1">Description goes here</p>
 
             <div class="row gx-2 gy-0">
-              <div class="col-auto">
+              <div class="col-12 col-sm-auto">
                 <small class="text-muted">
                   <i class="bi bi-calendar-event"></i> Due: 2025-07-10
                 </small>
               </div>
-              <div class="col-auto">
+              <div class="col-12 col-sm-auto">
                 <span class="badge bg-info text-dark">John Doe</span>
               </div>
-              <div class="col-auto">
+              <div class="col-12 col-sm-auto">
                 <span class="badge bg-secondary">2 attachments</span>
               </div>
             </div>
@@ -159,6 +157,10 @@
         </div>
       </div>
     </div>
+
+    </div>
+
+    
     <br />
   </body>
 </html>
