@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const card = document.createElement("div");
     card.className = "border rounded p-2 mb-3";
+    card.id = "todo-item";
 
     card.innerHTML = `
       <div class="row align-items-center">
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //remove todo
   document.getElementById("card-body").addEventListener("click", (e) => {
     if (e.target.closest(".delete-btn")) {
-      const card = e.target.closest(".border.rounded.p-2.mb-3");
+      const card = e.target.closest("#todo-item");
       if (card) card.remove();
     }
   });
