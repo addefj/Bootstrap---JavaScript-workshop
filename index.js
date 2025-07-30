@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="btn btn-sm btn-outline-secondary" title="Edit">
               <i class="bi bi-pencil"></i>
             </button>
-            <button class="btn btn-sm btn-outline-secondary" title="Delete">
+            <button class="delete-btn btn btn-sm btn-outline-secondary" title="Delete">
               <i class="bi bi-trash"></i>
             </button>
           </div>
@@ -97,7 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
           selectedFiles.length > 0
             ? `<div class="col-12 col-sm-auto">
                 <span class="badge bg-secondary">
-                  ${selectedFiles.length} attachment${selectedFiles.length > 1 ? "s" : ""}
+                  ${selectedFiles.length} attachment${
+                selectedFiles.length > 1 ? "s" : ""
+              }
                 </span>
               </div>`
             : ""
@@ -113,5 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
     form.classList.remove("was-validated");
     selectedFiles = [];
     renderFileList();
+  });
+
+  //remove todo
+  document.getElementById("card-body").addEventListener("click", (e) => {
+    if (e.target.closest(".delete-btn")) {
+      const card = e.target.closest(".border.rounded.p-2.mb-3");
+      if (card) card.remove();
+    }
   });
 });
