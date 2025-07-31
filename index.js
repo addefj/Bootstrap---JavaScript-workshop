@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <small>Created: ${createdDate}</small>
           </div>
           <div class="btn-group">
-            <button class="btn btn-sm btn-outline-secondary" title="Mark as done">
+            <button class="mark-as-done btn btn-sm btn-outline-secondary" title="Mark as done">
               <i class="bi bi-check-circle"></i>
             </button>
             <button class="btn btn-sm btn-outline-secondary" title="Edit">
@@ -125,4 +125,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (card) card.remove();
     }
   });
+
+  //mark as done
+  document.getElementById("card-body").addEventListener("click", (e) => {
+  const markBtn = e.target.closest(".mark-as-done");
+  if (markBtn) {
+      markBtn.classList.toggle("bg-success");
+    markBtn.classList.toggle("text-white");
+
+  }
+});
+
 });
