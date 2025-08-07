@@ -19,180 +19,175 @@
     />
     <script src="index.js"></script>
   </head>
+
   <body class="bg-light">
     <div class="container-fluid">
-      <h1 class="text-center display-3">My Todo App</h1>
-      <div class="container bg-white border rounded border p-3 mt-4">
-        <form id="form" novalidate>
-          <div>
-            <label for="title" class="form-label">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              placeholder="Enter title"
-              name="title"
-              required
-            />
-            <div class="invalid-feedback">Please enter a title.</div>
-          </div>
-          
-
-          <div class="mt-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea
-              class="form-control"
-              rows="3"
-              id="description"
-              placeholder="Enter description"
-              name="description"
-              required
-            ></textarea>
-            <div class="invalid-feedback">Please enter a description.</div>
-          </div>
-          
-
-          <div class="row mt-3">
-            <div class="col-12 col-md-6 order-1">
-              <label for="date" class="form-label">Due Date</label>
-              <input
-                type="date"
-                class="form-control"
-                id="date"
-                name="date"
-                required
-              />
-              <div class="invalid-feedback">Please choose a date.</div>
-            </div>
-            
-
-            <div class="col-12 col-md-6 mt-3 mt-md-0 order-2">
-              <label for="assignee" class="form-label"
-                >Assign to Person (Optional)</label
-              >
-              <select class="form-select" id="assignee" name="assignee">
-                <option value="">--Select Person (Optional)--</option>
-                <option value="Sven">Sven</option>
-                <option value="Karl">Karl</option>
-                <option value="John">John</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mt-3">
-            <label for="attachments" class="form-label">Attachments</label>
-            <div class="input-group">
-              <input
-                type="file"
-                class="form-control"
-                id="attachments"
-                name="attachments"
-                multiple
-              />
-              <button
-                class="btn btn-outline-danger"
-                type="button"
-                id="clearAttachment"
-              >
-                &times;
-              </button>
+      <div class="row">
+        <nav
+          class="col-md-2 d-none d-md-block bg-white sidebar border-end vh-100 position-fixed"
+        >
+          <div class="d-flex flex-column h-100 p-3">
+            <!-- Top: Navigation links -->
+            <div class="flex-grow-1 w-100">
+              <h4 class="mb-4">Menu</h4>
+              <ul class="nav nav-pills flex-column mb-auto w-100">
+                <li class="nav-item">
+                  <a href="#" class="nav-link link-dark">
+                    <i class="bi bi-grid"></i> Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link link-dark">
+                    <i class="bi bi-people"></i> Users
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link active">
+                    <i class="bi bi-list-task"></i> Tasks
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link link-dark">
+                    <i class="bi bi-gear"></i> Settings
+                  </a>
+                </li>
+              </ul>
             </div>
 
-            <ul class="list-group mt-2 border rounded p-4" id="fileList"></ul>
+            <!-- Bottom: Username and Logout -->
+            <div>
+              <small>Username</small><br />
+              <a href="#" class="text-decoration-none">
+                <i class="bi bi-box-arrow-right"></i> Logout
+              </a>
+            </div>
           </div>
+        </nav>
 
-          <div class="mt-3 text-end">
-            <button type="submit" id="submitForm" class="btn btn-primary">
-              + Add Todo
-            </button>
-          </div>
-        </form>
-      </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 offset-md-2">
+          <h3 class="text-left mt-4">Tasks</h3>
+          <hr
+            class="mx-auto w-85 border border-secondary border-2 opacity-80"
+          />
 
-      
-      <div class="container bg-white border rounded p-3 mt-4">
-        <div class="card mt-3">
-          <div class="card-header">
-            <div class="row align-items-center">
-              <div class="col">
-                <h3 class="mb-0">Todos</h3>
+          <div class="container w-75 bg-white border rounded p-3 mt-4">
+            <form id="form" novalidate>
+              <div>
+                <label for="title" class="form-label">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  placeholder="Enter title"
+                  name="title"
+                  required
+                />
+                <div class="invalid-feedback">Please enter a title.</div>
               </div>
-              <div class="col-auto">
-                <div class="btn-group">
-                  <button
-                    class="btn btn-sm btn-outline-secondary"
-                    title="Filter"
+
+              <div class="mt-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  id="description"
+                  placeholder="Enter description"
+                  name="description"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please enter a description.</div>
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-12 col-md-6 order-1">
+                  <label for="date" class="form-label">Due Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    name="date"
+                    required
+                  />
+                  <div class="invalid-feedback">Please choose a date.</div>
+                </div>
+
+                <div class="col-12 col-md-6 mt-3 mt-md-0 order-2">
+                  <label for="assignee" class="form-label"
+                    >Assign to Person (Optional)</label
                   >
-                    <i class="bi bi-funnel"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-secondary" title="Sort">
-                    <i class="bi bi-sort-down"></i>
-                  </button>
+                  <select class="form-select" id="assignee" name="assignee">
+                    <option value="">--Select Person (Optional)--</option>
+                    <option value="Sven">Sven</option>
+                    <option value="Karl">Karl</option>
+                    <option value="John">John</option>
+                  </select>
                 </div>
               </div>
+
+              <div class="mt-3">
+                <label for="attachments" class="form-label">Attachments</label>
+                <div class="input-group">
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="attachments"
+                    name="attachments"
+                    multiple
+                  />
+                  <button
+                    class="btn btn-outline-danger"
+                    type="button"
+                    id="clearAttachment"
+                  >
+                    &times;
+                  </button>
+                </div>
+
+                <ul
+                  class="list-group mt-2 border rounded p-4"
+                  id="fileList"
+                ></ul>
+              </div>
+
+              <div class="mt-3 text-end">
+                <button type="submit" id="submitForm" class="btn btn-primary">
+                  + Add Todo
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="container w-75 bg-white border rounded p-3 mt-4">
+            <div class="card mt-3">
+              <div class="card-header">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0">Todos</h3>
+                  </div>
+                  <div class="col-auto">
+                    <div class="btn-group">
+                      <button
+                        class="btn btn-sm btn-outline-secondary"
+                        title="Filter"
+                      >
+                        <i class="bi bi-funnel"></i>
+                      </button>
+                      <button
+                        class="btn btn-sm btn-outline-secondary"
+                        title="Sort"
+                      >
+                        <i class="bi bi-sort-down"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="card-body" class="card-body"></div>
             </div>
           </div>
-          
-          <div id="card-body" class="card-body">
-
-          <!-- //Example todo//
-            <div class="border rounded p-2">
-              <div class="row align-items-center">
-                <div class="col-md-6">
-                  <h5 class="card-title mb-0">Example Todo</h5>
-                </div>
-                <div class="col-md-6 text-end">
-                  <div class="d-inline-block me-3 text-muted">
-                    <small>Created: 2025-07-01</small>
-                  </div>
-                  <div class="btn-group">
-                    <button
-                      class="btn btn-sm btn-outline-secondary"
-                      title="Mark as done"
-                    >
-                      <i class="bi bi-check-circle"></i>
-                    </button>
-                    <button
-                      class="btn btn-sm btn-outline-secondary"
-                      title="Edit"
-                    >
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button
-                      class="deleter-btn btn-sm btn-outline-secondary"
-                      title="Delete"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <p class="card-text mb-1">Description goes here</p>
-
-              <div class="row gx-2 gy-0">
-                <div class="col-12 col-sm-auto">
-                  <small class="text-muted">
-                    <i class="bi bi-calendar-event"></i> Due: 2025-07-10
-                  </small>
-                </div>
-                <div class="col-12 col-sm-auto">
-                  <span class="badge bg-info text-dark">John Doe</span>
-                </div>
-                <div class="col-12 col-sm-auto">
-                  <span class="badge bg-secondary">2 attachments</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          -->
-          
-        </div>
+        </main>
       </div>
     </div>
-      
-      
-
-    <br />
   </body>
 </html>
